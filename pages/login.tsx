@@ -18,7 +18,7 @@ export default function Login({}: Props) {
         <input type="password" className="p-3 bg-gray-200 text-black rounded-xl mt-5" placeholder="Password"/>
         <button type="submit" onClick={() => login} className="w-full btn btn-primary mt-10">Log in</button>
 
-        <p className="text-lg text-center mt-10">Don't have an account? <span className="text-brand" onClick={() => router.push('/register')}>Sign up</span></p>
+        <p className="text-lg text-center mt-10">Don&apos;t have an account? <span className="text-brand" onClick={() => router.push('/register')}>Sign up</span></p>
       </form>
     </>
   );
