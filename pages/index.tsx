@@ -1,10 +1,13 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Home() {
+
+  const router = useRouter()
   return (
     <div>
       <div className='grid place-content-center mt-10 '>
-        <h1 className='font-semibold text-gray-600 text-start text-5xl'>Lorem ipsum dolor sit amet.</h1>
+        <h1 className='font-semibold text-gray-800 text-start text-5xl'>Lorem ipsum dolor sit amet.</h1>
 
         <div className='flex justify-center mt-20'>
           <Image alt="image" src='/descriptions.svg' height='200' width='200' className='' />
@@ -15,8 +18,10 @@ export default function Home() {
         </p>
 
         <div className='flex justify-center space-x-5 mt-20'>
-          <button className='font-medium text-md py-3 px-5 rounded-3xl bg-brand  text-white'>Get Started</button>
-          <button className='font-medium text-md py-3 px-5 rounded-3xl bg-gray-200  text-black'>Learn More</button>
+          <button className='btn btn-primary'
+          onClick={() => router.push('/login')}
+          >Get Started</button>
+          <button className='btn btn-secondary'>Learn More</button>
         </div>
       </div>
 
@@ -67,7 +72,7 @@ export default function Home() {
       </div>
       <p className='text-center mt-10'>Engage in social groups and challenge your friends!</p>
 
-      <button className='font-medium text-md py-3 px-5 rounded-3xl bg-brand  text-white w-full mt-10'>Sign Up</button>
+      <button className='btn btn-primary w-full mt-10'>Sign Up</button>
     </div>
   );
 }

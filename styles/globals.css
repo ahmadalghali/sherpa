@@ -7,3 +7,15 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+.btn {
+  @apply font-semibold  py-3 px-5 rounded-3xl  uppercase;
+}
+
+.btn-primary {
+  @apply btn bg-brand text-white;
+}
+
+.btn-secondary {
+  @apply btn bg-gray-200 text-gray-700;
+}
