@@ -8,14 +8,24 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.btn {
-  @apply font-semibold  py-3 px-5 rounded-3xl  uppercase;
-}
+@layer components {
+  .bg-brand {
+    @apply bg-primary-500;
+  }
 
-.btn-primary {
-  @apply btn bg-brand text-white;
-}
+  .text-brand {
+    @apply text-primary-500;
+  }
 
-.btn-secondary {
-  @apply btn bg-gray-200 text-gray-700;
+  .btn {
+    @apply py-3 px-5 rounded-3xl font-semibold shadow-md  focus:outline-none focus:ring-2  focus:ring-opacity-75;
+  }
+
+  .btn-primary {
+    @apply btn text-white bg-brand;
+  }
+
+  .btn-secondary {
+    @apply btn text-black bg-slate-100;
+  }
 }

@@ -18,10 +18,10 @@ export default function Home() {
         </p>
 
         <div className='flex justify-center space-x-5 mt-20'>
-          <button className='btn btn-primary'
+          <button className='btn-primary'
           onClick={() => router.push('/login')}
           >Get Started</button>
-          <button className='btn btn-secondary'>Learn More</button>
+          <button className='btn-secondary'>Learn More</button>
         </div>
       </div>
 
