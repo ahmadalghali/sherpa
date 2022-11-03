@@ -1,14 +1,18 @@
 import Navbar from './Navbar'
-import Footer from './Footer'
+import BottomNavigationBar from './BottomNavigationBar'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../store'
 
 export default function Layout({ children }: any) {
 
-  const isLoggedIn = true
+  const user = useSelector((state: RootState) => state.userReducer.user) 
+
+  const isLoggedIn = !!user
   return (
     <>
       <Navbar />
       <main className='pb-32 pt-12 max-w-5xl mx-auto px-8 bg-slate-200'>{children}</main>
-      {isLoggedIn ? <Footer /> : <></> }
+      {isLoggedIn ? <BottomNavigationBar /> : <></> }
     </>
   )
 }
