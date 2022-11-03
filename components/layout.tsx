@@ -10,7 +10,7 @@ export default function Layout({ children }: any) {
   return (
     <>
       <Navbar />
-      <main className='max-w-5xl mx-auto px-8 bg-slate-200 '>{children}</main>
+      <main className='max-w-5xl mx-auto px-8'>{children}</main>
       {isLoggedIn && <BottomNavigationBar />}
     </>
   );

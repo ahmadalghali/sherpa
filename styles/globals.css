@@ -9,6 +9,10 @@ body {
 }
 
 @layer components {
+  body {
+    @apply bg-slate-200;
+  }
+
   .bg-brand {
     @apply bg-primary-600;
   }
