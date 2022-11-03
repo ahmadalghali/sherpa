@@ -47,11 +47,9 @@ export default function Login({}: Props) {
           Log in
         </button>
 
-        {email + " " + password}
-
         <p className='text-lg text-center mt-10'>
           Don&apos;t have an account?{" "}
-          <span className='text-brand' onClick={() => router.push("/register")}>
+          <span className='text-brand cursor-pointer hover:underline' onClick={() => router.push("/register")}>
             Sign up
           </span>
         </p>
