@@ -32,4 +32,8 @@ body {
   .btn-secondary {
     @apply btn text-black bg-slate-100;
   }
+
+  .input {
+    @apply p-3 bg-white text-black rounded-2xl border border-gray-300 focus:outline-primary-400 outline-offset-2 shadow-sm;
+  }
 }

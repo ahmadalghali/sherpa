@@ -5,9 +5,10 @@ export interface UserState {
   user: any | null;
   auth: { accessToken: string; refreshToken: string } | null;
 }
-
+const dummyUser = { email: "ahmad" };
 const initialState: UserState = {
-  user: null,
+  // user: null,
+  user: dummyUser,
   auth: null,
 };
 
