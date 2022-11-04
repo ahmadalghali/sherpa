@@ -1,6 +1,5 @@
 import React from "react";
 import { UserIcon } from "@heroicons/react/24/solid";
-
 type Props = {
   theme: string;
   name: string;
@@ -8,9 +7,30 @@ type Props = {
 };
 
 function Group({ memberCount, name, theme }: Props) {
+  let border = "border-primary-500";
+
+  switch (theme) {
+    case "green":
+      border = "border-green-500";
+      break;
+    case "violet":
+      border = "border-violet-500";
+      break;
+    case "amber":
+      border = "border-amber-500";
+      break;
+    case "sky":
+      border = "border-sky-500";
+      break;
+    default:
+      border = "border-primary-500";
+      break;
+  }
   return (
     <div
-      className={`flex justify-between items-center w-full bg-white p-4 rounded-lg text-lg drop-shadow-sm border-l-8 border-${theme}-500`}
+      className={
+        "flex justify-between items-center w-full bg-white p-4 rounded-lg text-lg drop-shadow-sm border-l-8 " + border
+      }
     >
       <p>{name}</p>
       <div className='flex space-x-1 text-gray-600'>
