@@ -2,6 +2,9 @@ import Router, { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useQuery, useMutation } from "react-query";
 import { api } from "../api";
+import { useDispatch } from "react-redux";
+import { setUser } from "../store/slices/userSlice";
+
 type Props = {};
 
 type AuthRequest = { email: string; password: string };
@@ -16,6 +19,8 @@ export default function Login({}: Props) {
   const { mutate: submitDetails, isLoading } = useMutation(login);
 
   async function login({ email, password }: AuthRequest) {
+    const dummyUser = { email: "ahmad" };
+
     router.push("/dashboard");
     return;
     const { data: response } = await api.post<AuthResponse>("/authentication/login/", {

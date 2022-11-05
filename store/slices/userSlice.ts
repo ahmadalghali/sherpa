@@ -2,23 +2,26 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface UserState {
-  user: any | null;
+  user: { email: string } | null;
   auth: { accessToken: string; refreshToken: string } | null;
 }
-const dummyUser = { email: "ahmad" };
 const initialState: UserState = {
-  // user: null,
-  user: dummyUser,
+  user: null,
   auth: null,
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    setUser(state, action: PayloadAction<{ email: string }>) {
+      console.log("action.payload", action.payload);
+      state.user = action.payload;
+    },
+  },
 });
 
 // Action creators are generated for each case reducer function
-export const {} = userSlice.actions;
+export const { setUser } = userSlice.actions;
 
 export default userSlice.reducer;
