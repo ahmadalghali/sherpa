@@ -12,14 +12,17 @@ type AuthResponse = { accessToken: string; refreshToken: string };
 
 export default function Login({}: Props) {
   const router = useRouter();
+  const dispatch = useDispatch()
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { mutate: submitDetails, isLoading } = useMutation(login);
 
+
   async function login({ email, password }: AuthRequest) {
     const dummyUser = { email: "ahmad" };
+    dispatch(setUser(dummyUser))
 
     router.push("/dashboard");
     return;
