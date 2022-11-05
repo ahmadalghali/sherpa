@@ -1,43 +1,18 @@
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { useQuery, useMutation } from "react-query";
-import { api } from "../api";
-import { useDispatch } from "react-redux";
-import { setUser } from "../store/slices/userSlice";
-
+import {  useMutation } from "react-query";
+import useAuth from "../hooks/useAuth";
 type Props = {};
 
-type AuthRequest = { email: string; password: string };
-type AuthResponse = { accessToken: string; refreshToken: string };
 
 export default function Login({}: Props) {
   const router = useRouter();
-  const dispatch = useDispatch()
+  const { login } = useAuth()
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { mutate: submitDetails, isLoading } = useMutation(login);
-
-
-  async function login({ email, password }: AuthRequest) {
-    const dummyUser = { email: "ahmad" };
-    dispatch(setUser(dummyUser))
-
-    router.push("/dashboard");
-    return;
-    const { data: response } = await api.post<AuthResponse>("/authentication/login/", {
-      username: email,
-      password: password,
-    });
-
-    if (response.accessToken) {
-    } else {
-      alert("Login unsuccessful");
-    }
-
-    console.log("response :>> ", response);
-  }
 
   return (
     <>
