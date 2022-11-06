@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
 import React from "react";
+import NotLoggedInLayout from "../components/NotLoggedInLayout";
 
 type Props = {};
 
-export default function Register({}: Props) {
+export default function Register({ }: Props) {
   const router = useRouter();
 
   const register = () => {
@@ -28,4 +29,13 @@ export default function Register({}: Props) {
       </form>
     </>
   );
+}
+
+
+Register.getLayout = function getLayout(page: any) {
+  return (
+    <NotLoggedInLayout>
+      {page}
+    </NotLoggedInLayout>
+  )
 }

@@ -1,11 +1,12 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import {  useMutation } from "react-query";
+import { useMutation } from "react-query";
+import NotLoggedInLayout from "../components/NotLoggedInLayout";
 import useAuth from "../hooks/useAuth";
 type Props = {};
 
 
-export default function Login({}: Props) {
+export default function Login({ }: Props) {
   const router = useRouter();
   const { login } = useAuth()
 
@@ -41,4 +42,13 @@ export default function Login({}: Props) {
       </form>
     </>
   );
+}
+
+
+Login.getLayout = function getLayout(page: any) {
+  return (
+    <NotLoggedInLayout>
+      {page}
+    </NotLoggedInLayout>
+  )
 }
