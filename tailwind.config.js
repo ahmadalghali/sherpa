@@ -13,7 +13,7 @@ module.exports = {
       colors: {
         primary: colors.rose,
         secondary: colors.orange,
-        accent: colors.rose,
+        accent: colors.zinc,
         // primary: colors.indigo,
       }
     }

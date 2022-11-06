@@ -17,12 +17,17 @@ body {
     @apply bg-primary-600;
   }
 
+  .bg-accent {
+    @apply bg-accent-900 text-white
+  }
+
+
   .text-brand {
     @apply text-primary-600;
   }
 
   .btn {
-    @apply py-3 px-5 rounded-3xl font-semibold shadow-md  focus:outline-none focus:ring-2  focus:ring-opacity-75 uppercase;
+    @apply py-3 px-5 rounded-3xl font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-opacity-75 uppercase;
   }
 
   .btn-primary {
@@ -31,6 +36,10 @@ body {
 
   .btn-secondary {
     @apply btn text-black bg-slate-100;
+  }
+
+  .btn-accent {
+    @apply btn text-white bg-accent-900;
   }
 
   .input {
