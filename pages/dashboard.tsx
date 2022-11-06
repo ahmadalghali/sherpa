@@ -1,4 +1,5 @@
 import React from "react";
+import CreateNewGoalFloatingButton from "../components/CreateNewGoalFloatingButton";
 import Groups from "../components/Groups";
 import useAuth from "../hooks/useAuth";
 
@@ -13,12 +14,15 @@ function Dashboard({}: Props) {
   ];
 
   const { logout } = useAuth()
-  
-  return (
-    <div className='py-24 grid items-center'>
-      <Groups groups={groups} />
 
-      <button className="btn-secondary mt-20" onClick={() => logout()}>Log out</button>
+  return (
+    <div className='py-24 h-screen flex flex-col justify-between'>
+      <div className="">
+        <Groups groups={groups} />
+        <button className="btn-secondary mt-20" onClick={() => logout()}>Log out</button>
+      </div>
+
+      <CreateNewGoalFloatingButton className="w-64 self-center fixed bottom-24 z-50" />
     </div>
   );
 }

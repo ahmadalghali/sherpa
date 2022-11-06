@@ -2,9 +2,10 @@ import Navbar from "./Navbar";
 import BottomNavigationBar from "./BottomNavigationBar";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store";
+import { getCookie } from "cookies-next";
 
 export default function Layout({ children }: any) {
-  const user = useSelector((state: RootState) => state.userReducer.user);
+  const user = getCookie('user')
 
   const isLoggedIn = !!user;
   return (
