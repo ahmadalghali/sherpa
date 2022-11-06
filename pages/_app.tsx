@@ -4,7 +4,7 @@ import Head from "next/head";
 import { store } from "../store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
-import LoggedInLayout from "../components/loggedInLayout";
+import LoggedInLayout from "../components/LoggedInLayout";
 // import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
