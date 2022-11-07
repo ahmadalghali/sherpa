@@ -1,4 +1,4 @@
-import { deleteCookie, setCookie , removeCookies } from "cookies-next"
+import { deleteCookie, setCookie , removeCookies, hasCookie } from "cookies-next"
 import { useRouter } from "next/router"
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/slices/userSlice";
@@ -34,6 +34,8 @@ export default function useAuth() {
     router.replace('/login')
   }
 
+  const isLoggedIn = hasCookie('user')
+
   
-  return { login, logout }
+  return { login, logout, isLoggedIn }
 }

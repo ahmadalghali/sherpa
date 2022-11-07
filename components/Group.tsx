@@ -29,7 +29,7 @@ function Group({ memberCount, name, theme }: Props) {
   return (
     <div
       className={
-        "flex justify-between items-center w-full bg-white p-4 rounded-lg text-lg drop-shadow-sm border-l-8 " + border
+        "flex justify-between items-center w-full bg-white p-3 rounded-lg text-lg shadow-sm border-l-8 " + border
       }
     >
       <p>{name}</p>
