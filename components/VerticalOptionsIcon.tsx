@@ -73,7 +73,7 @@ export default function VerticalOptionsIcon({ options }: Props) {
 }
 
 
-function EditActiveIcon(props) {
+function EditActiveIcon(props: any) {
   return (
     <svg
       {...props}
@@ -84,7 +84,7 @@ function EditActiveIcon(props) {
 }
 
 
-function DeleteActiveIcon(props) {
+function DeleteActiveIcon(props: any) {
   return (
     <svg
       {...props}
