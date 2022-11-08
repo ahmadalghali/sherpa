@@ -13,39 +13,21 @@ export default function useAuth() {
 
   const login = async ({ email, password }: AuthRequest) => {
     // hardcoding user for now
-    // const dummyUser = { email: 'ahmad' }
-    // dispatch(setUser(dummyUser))
-    // setCookie('user', { user: dummyUser, expires: new Date(0) })
-    // router.push("/dashboard");
 
-    // const { data: response } = await api.post<AuthResponse>("/authentication/login/", {
-    //   username: email,
-    //   password: password,
-    // });
-
-    const response = await fetch('https://sherpa-test-server.fly.dev/authentication/login/', {
-      method: 'POST',
-      body: JSON.stringify({
+    const { data: response } = await api.post<AuthResponse>("/authentication/login/", {
       username: email,
       password: password,
-    }),
-      headers: {
-        'Content-type': 'application/json',
-      },
-    })
+    });
 
-    console.log('response', response)
 
-    // const { data: response } = await api.post<AuthResponse>("/authentication/login/", {
-    //   username: email,
-    //   password: password,
-    // });
-
-    // if (response.accessToken) {
-    //   alert(JSON.stringify(response))
-    // } else {
-    //   alert("Login unsuccessful");
-    // }
+    if (response.accessToken) {
+      // dispatch(setUser(dummyUser))
+      setCookie('user', { user: response, expires: new Date(0) })
+      router.push("/dashboard");
+      console.log('JSON.stringify(response)', JSON.stringify(response))
+    } else {
+      alert("Email or password incorrect");
+    }
   }
 
   const logout = () => {
