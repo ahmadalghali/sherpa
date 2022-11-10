@@ -51,14 +51,14 @@ export default function useAuth() {
 
     return
 
-    if (response.accessToken) {
-      // dispatch(setUser(dummyUser))
-      setCookie('user', { user: response, expires: new Date(0) })
-      router.push("/dashboard");
-      console.log('JSON.stringify(response)', JSON.stringify(response))
-    } else {
-      alert("Email or password incorrect");
-    }
+    // if (response.accessToken) {
+    //   // dispatch(setUser(dummyUser))
+    //   setCookie('user', { user: response, expires: new Date(0) })
+    //   router.push("/dashboard");
+    //   console.log('JSON.stringify(response)', JSON.stringify(response))
+    // } else {
+    //   alert("Email or password incorrect");
+    // }
   }
 
   const logout = () => {
