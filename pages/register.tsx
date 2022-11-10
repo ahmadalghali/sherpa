@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 import { useMutation } from "react-query";
 import NotLoggedInLayout from "../components/NotLoggedInLayout";
 import useAuth from "../hooks/useAuth";
@@ -30,14 +30,14 @@ export default function Register({ }: Props) {
   }
 
   return (
-    <div className="h-screen flex flex-col justify-center space-y-10">
-      <h1 className="text-4xl text-center font-bold">Join Us</h1>
-      <form className='max-w-lg mx-auto' onSubmit={handleSubmit(onSubmit)}>
+    <div className="py-32 grid content-center space-y-16 max-w-sm mx-auto">
+      <h1 className="text-4xl text-center font-bold">Join us</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col space-y-5">
 
           <div>
             <label htmlFor="email" className="ml-2">Email</label>
-            <input type="email" className='input mt-1'{...register("email", {
+            <input type="email" className='input mt-1' {...register("email", {
               required: "Required",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -48,7 +48,7 @@ export default function Register({ }: Props) {
           </div>
 
           <div>
-            <label htmlFor="email" className="ml-2">Username</label>
+            <label htmlFor="username" className="ml-2">Username</label>
             <input type="text" className='input mt-1'{...register("username", {
               required: "Required",
             })} />
@@ -57,14 +57,14 @@ export default function Register({ }: Props) {
 
 
           <div>
-            <label htmlFor="email" className="ml-2">Password</label>
+            <label htmlFor="password" className="ml-2">Password</label>
             <input type="password" className='input mt-1'              {...register("password", { required: "Required", minLength: { value: 6, message: `Minimum 6 characters` } })} />
             {errors.password && <p className="text-red-600 ml-2 mt-1">{errors.password.message}</p>}
           </div>
 
 
           <div>
-            <label htmlFor="email" className="ml-2">Confirm Password</label>
+            <label htmlFor="confirmPassword" className="ml-2">Confirm Password</label>
             <input type="password" className='input mt-1'
               {...register("confirmPassword", { required: "Required", minLength: { value: 6, message: `Minimum 6 characters` } })} />
             {errors.confirmPassword && <p className="text-red-600 ml-2 mt-1">{errors.confirmPassword.message}</p>}

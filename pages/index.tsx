@@ -3,9 +3,12 @@ import { useRouter } from "next/router";
 import NotLoggedInLayout from '../components/NotLoggedInLayout'
 
 export default function Home() {
+
   const router = useRouter();
+
   return (
     <div className='pb-24 pt-12'>
+
       <div className='grid place-content-center mt-10 '>
         <h1 className='font-semibold text-gray-800 text-start text-5xl'>Lorem ipsum dolor sit amet.</h1>
         <div className='flex justify-center mt-20'>

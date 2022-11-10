@@ -1,8 +1,15 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 import { useMutation } from "react-query";
 import NotLoggedInLayout from "../components/NotLoggedInLayout";
 import useAuth from "../hooks/useAuth";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type Inputs = {
+  username: string
+  password: string
+};
+
 type Props = {};
 
 
@@ -10,24 +17,42 @@ export default function Login({ }: Props) {
   const router = useRouter();
   const { login } = useAuth()
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { mutate, isLoading } = useMutation(login);
 
-  const { mutate: submitDetails, isLoading } = useMutation(login);
+
+  const { register, handleSubmit, watch, formState: { errors }, setError } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = ({ username, password }) => {
+    mutate({ username, password })
+
+  }
 
   return (
-    <>
-      <form className='h-screen flex flex-col justify-center max-w-lg mx-auto'>
-        <input type='text' className='input' placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
-        <input
-          type='password'
-          className='input mt-5'
-          placeholder='Password'
-          onChange={(e) => setPassword(e.target.value)}
-        />
+    <div className="h-screen grid content-center space-y-16 mx-auto max-w-sm">
+      <h1 className="text-4xl text-center font-bold">Welcome back</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-col space-y-5">
+
+
+          <div className="">
+            <label htmlFor="username" className="ml-2">Username</label>
+            <input type="text" className='input mt-1'{...register("username", {
+              required: "Required",
+            })} />
+            {errors.username && <p className="text-red-600 ml-2 mt-1">{errors.username.message}</p>}
+          </div>
+
+
+          <div>
+            <label htmlFor="password" className="ml-2">Password</label>
+            <input type="password" className='input mt-1'  {...register("password", { required: "Required" })} />
+            {errors.password && <p className="text-red-600 ml-2 mt-1">{errors.password.message}</p>}
+          </div>
+
+        </div>
+
         <button
-          type='button'
-          onClick={() => submitDetails({ email, password })}
+          type='submit'
           className='w-full btn btn-primary mt-10'
         >
           Log in
@@ -40,7 +65,7 @@ export default function Login({ }: Props) {
           </span>
         </p>
       </form>
-    </>
+    </div>
   );
 }
 

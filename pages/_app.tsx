@@ -5,6 +5,8 @@ import { store } from "../store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
 import LoggedInLayout from "../components/LoggedInLayout";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,18 @@ export default function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           {getLayout(<Component {...pageProps} />)}
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
         </Provider>
         {/* <ReactQueryDevtools /> */}
       </QueryClientProvider>

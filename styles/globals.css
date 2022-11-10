@@ -17,6 +17,14 @@ body {
     @apply bg-primary-600;
   }
 
+  .bg-brand-dark {
+    @apply bg-primary-900;
+  }
+
+  .bg-brand-light {
+    @apply bg-primary-300;
+  }
+
   .bg-accent {
     @apply bg-accent-900 text-white
   }
@@ -43,6 +51,6 @@ body {
   }
 
   .input {
-    @apply p-3 bg-white text-black rounded-2xl border border-gray-300 focus:outline-primary-400 outline-offset-2 shadow-sm;
+    @apply px-3 py-2.5 bg-white text-lg text-black rounded-xl border border-gray-300 focus:outline-primary-400 outline-offset-2 shadow-sm w-full;
   }
 }
