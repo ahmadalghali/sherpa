@@ -1,5 +1,5 @@
 import React from 'react'
-import NotLoggedInLayout from '../components/NotLoggedInLayout'
+import PublicPageLayout from '../components/PublicPageLayout'
 
 type Props = {}
 
@@ -56,9 +56,9 @@ function PrivacyPolicy({ }: Props) {
 
 PrivacyPolicy.getLayout = function getLayout(page: any) {
   return (
-    <NotLoggedInLayout>
+    <PublicPageLayout>
       {page}
-    </NotLoggedInLayout>
+    </PublicPageLayout>
   )
 }
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import NotLoggedInLayout from '../components/NotLoggedInLayout'
+import PublicPageLayout from "../components/PublicPageLayout";
 
 export default function Home() {
 
@@ -73,6 +73,7 @@ export default function Home() {
       <button className='btn-primary w-full mt-10' onClick={() => router.push("/register")}>
         Sign Up
       </button>
+
     </div>
   );
 }
@@ -80,8 +81,8 @@ export default function Home() {
 
 Home.getLayout = function getLayout(page: any) {
   return (
-    <NotLoggedInLayout>
+    <PublicPageLayout>
       {page}
-    </NotLoggedInLayout>
+    </PublicPageLayout>
   )
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import CreateNewGoalFloatingButton from "../components/CreateNewGoalFloatingButton";
 import Goal from "../components/Goals/Goal";
-import Groups from "../components/Groups";
+import Groups from "../components/Groups/Groups";
 import VerticalOptionsIcon from "../components/VerticalOptionsIcon";
 
 type Props = {};
