@@ -69,9 +69,12 @@ export default function Home() {
       </div>
       <p className='text-center mt-10'>Engage in social groups and challenge your friends!</p>
 
-      <button className='btn-primary w-full mt-10' onClick={() => router.push("/register")}>
-        Sign Up
-      </button>
+      <Link href="/register">
+        <div className='btn-primary text-center w-full mt-10'>
+          Sign Up
+        </div>
+      </Link>
+
 
     </div>
   );
