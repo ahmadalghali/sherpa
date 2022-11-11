@@ -11,7 +11,7 @@ function NotFound({ }: Props) {
       {/* <MagnifyingGlassIcon className='h-20' /> */}
       <p className='text-5xl text-center'>:(</p>
       {/* </div> */}
-      <p className='text-4xl font-medium text-start'>Uh oh, looks like this page does not exist.</p>
+      <p className='text-4xl font-medium sm:text-center'>Uh oh, looks like this page does not exist.</p>
     </div>
   )
 }

@@ -1,5 +1,6 @@
-import Navbar from "./Navbar";
 import BottomNavigationBar from "./BottomNavigationBar";
+import dynamic from "next/dynamic";
+const Navbar = dynamic(() => import('./Navbar'), { ssr: false })
 
 export default function LoggedInLayout({ children }: any) {
 
