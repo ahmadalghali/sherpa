@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
+import Link from "next/link";
 import PublicPageLayout from "../components/PublicPageLayout";
 
 export default function Home() {
 
-  const router = useRouter();
 
   return (
     <div className='pb-24 pt-12'>
@@ -18,10 +17,10 @@ export default function Home() {
           Track and manage your goals like never before, now with an all easy solution.
         </p>
         <div className='flex justify-center space-x-10 mt-20'>
-          <button className='btn-primary' onClick={() => router.push("/login")}>
+          <Link href="/login" className='btn-primary'>
             Get Started
-          </button>
-          <button className='btn-secondary'>Learn More</button>
+          </Link>
+          <Link href="/about-us" className='btn-secondary'>Learn More</Link>
         </div>
       </div>
 
