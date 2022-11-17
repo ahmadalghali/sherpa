@@ -1,12 +1,15 @@
 import { useRouter } from "next/router";
 import useAuth from "../../hooks/useAuth";
 
-export default function Navbar() {
+type Props = {
+  className?: string
+}
+export default function Navbar({ className }: Props) {
   const router = useRouter();
   const { logout, isLoggedIn } = useAuth()
 
   return (
-    <nav className='h-16 bg-brand flex justify-between items-center text-white px-6 fixed top-0 left-0 right-0'>
+    <nav className={'h-16 bg-brand flex justify-between items-center text-white px-6 fixed top-0 left-0 right-0 ' + className}>
       <p className='text-3xl font-bold cursor-pointer' onClick={() => router.push("/")}>
         Sherpa
       </p>

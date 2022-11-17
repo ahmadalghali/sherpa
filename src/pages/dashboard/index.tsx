@@ -1,3 +1,4 @@
+import FloatingActionButton from "@/common/components/FloatingActionButton";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import CreateNewGoalFloatingButton from "../../common/components/CreateNewGoalFloatingButton";
@@ -9,30 +10,25 @@ import { Goal, Group } from "../../types";
 
 type Props = {};
 
-function Dashboard({ }: Props) {
-
+function Dashboard({}: Props) {
   const initialMyGroupsState = [
     { name: "Mountain Hikers", theme: "green", memberCount: 5 },
     { name: "Amazon Junglers", theme: "violet", memberCount: 12 },
     { name: "Sea Surfers", theme: "amber", memberCount: 3 },
   ];
 
+  const [myGroups, setMyGroups] = useState<Group[]>(initialMyGroupsState);
 
-  const [myGroups, setMyGroups] = useState<Group[]>(initialMyGroupsState)
-
-  const myGoals = useSelector((state: RootState) => state.goals.myGoals)
-
+  const myGoals = useSelector((state: RootState) => state.goals.myGoals);
 
   return (
-    <div className='flex flex-col justify-between'>
-
-      <div className="space-y-16">
+    <div className="">
+      <div className="space-y-10">
         <Goals goals={myGoals} />
         <Groups groups={myGroups} />
       </div>
 
-
-      <CreateNewGoalFloatingButton className="w-64 self-center fixed bottom-24 z-20" />
+      <FloatingActionButton text="Add a new goal" />
     </div>
   );
 }

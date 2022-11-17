@@ -4,29 +4,27 @@ import Head from "next/head";
 import { store } from "../store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
-import LoggedInLayout from "../common/components/layouts/LoggedInLayout";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ScrollableLayout from "@/common/components/layouts/ScrollableLayout";
 // import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
-
-  // @ts-ignore
-  const getLayout = Component.getLayout ?? ((page: any) => (
-    <LoggedInLayout>
-      {page}
-    </LoggedInLayout>
-  ))
+  const getLayout = // @ts-ignore
+    Component.getLayout ??
+    ((page: any) => <ScrollableLayout>{page}</ScrollableLayout>);
 
   return (
-
     <>
       <Head>
         <title>Sherpa</title>
-        <meta name='description' content='The one and only task planner you need.' />
-        <link rel='icon' href='/favicon.ico' />
+        <meta
+          name="description"
+          content="The one and only task planner you need."
+        />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <QueryClientProvider client={queryClient}>
