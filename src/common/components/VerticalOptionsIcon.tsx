@@ -1,23 +1,22 @@
-import { Menu, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
-import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
+import { Menu, Transition } from "@headlessui/react";
+import { Fragment } from "react";
+import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
 
 type Props = {
   options: {
-    title: string,
-    icon: JSX.Element
-    action: Function
-  }[]
-}
+    title: string;
+    icon: JSX.Element;
+    action: Function;
+  }[];
+};
 
 export default function VerticalOptionsIcon({ options }: Props) {
-
   return (
-    <div className="text-right">
+    <div className="text-right flex items-center justify-center">
       <Menu as="div" className="relative inline-block text-left">
-        <div>
+        <div className="flex items-center">
           <Menu.Button className="inline-flex w-full justify-center rounded-md  text-sm font-medium  hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-            <EllipsisVerticalIcon className='h-6 w-6' />
+            <EllipsisVerticalIcon className="h-6 w-6" />
           </Menu.Button>
         </div>
         <Transition
@@ -35,13 +34,15 @@ export default function VerticalOptionsIcon({ options }: Props) {
                 <Menu.Item key={i}>
                   {({ active }) => (
                     <button
-                      onClick={() => action()}
-                      className={`${active ? 'bg-gray-200 text-gray-900' : ''
-                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        action();
+                      }}
+                      className={`${
+                        active ? "bg-gray-200 text-gray-900" : ""
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                     >
-                      <span className='mr-2'>
-                        {icon}
-                      </span>
+                      <span className="mr-2">{icon}</span>
                       {title}
                     </button>
                   )}
@@ -83,12 +84,9 @@ export default function VerticalOptionsIcon({ options }: Props) {
                 )}
               </Menu.Item> */}
             </div>
-
           </Menu.Items>
         </Transition>
       </Menu>
     </div>
-  )
+  );
 }
-
-
