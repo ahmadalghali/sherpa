@@ -1,8 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteGoal, editGoal } from "../../../store/slices/goalsSlice";
+import { deleteGoal } from "../../../store/slices/goalsSlice";
 import VerticalOptionsIcon from "../../../common/components/VerticalOptionsIcon";
+import { useRouter } from "next/router";
 
 type Props = {
   goal: { id: number; title: string; description: string };
@@ -10,6 +11,7 @@ type Props = {
 
 function GoalItem({ goal }: Props) {
   const { description, id, title } = goal;
+  const router = useRouter();
 
   const dispatch = useDispatch();
 
@@ -32,7 +34,7 @@ function GoalItem({ goal }: Props) {
           {
             title: "Edit",
             icon: <EditIcon />,
-            action: () => dispatch(editGoal(id)),
+            action: () => router.push(`/dashboard/goals/${id}/edit`),
           },
         ]}
       />
