@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from "react"
-import { addGoal, deleteGoal, editGoal } from '@/store/slices/goalsSlice';
+import { addGoal, deleteGoal, updateGoal as updateGoalStore } from '@/store/slices/goalsSlice';
 import { Goal } from '../../../types';
 import { RootState } from '@/store';
 
@@ -17,6 +17,10 @@ export default function useGoals() {
 
   }
 
+  const updateGoal = (newGoal: Goal) => {
+    dispatch(updateGoalStore(newGoal))
+  }
+
   const getGoalById = (id: number) => {
     return myGoals.find(goal => goal.id === id)
   }
@@ -25,7 +29,8 @@ export default function useGoals() {
     deleteGoal,
     addGoal,
     myGoals,
-    getGoalById
+    getGoalById,
+    updateGoal
   }
 }
 
