@@ -26,9 +26,8 @@ body {
   }
 
   .bg-accent {
-    @apply bg-accent-900 text-white
+    @apply bg-accent-900 text-white;
   }
-
 
   .text-brand {
     @apply text-primary-600;

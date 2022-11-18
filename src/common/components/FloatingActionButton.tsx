@@ -1,14 +1,24 @@
-import React from "react";
+import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
 type Props = {
   text: string;
   className?: string;
+  onFABClicked?: Function;
+  btnType: string;
 };
 
-function FloatingActionButton({ text, className }: Props) {
+function FloatingActionButton({
+  text,
+  className,
+  onFABClicked,
+  btnType,
+}: Props) {
   return (
     <button
-      className={`btn-primary drop-shadow-2xl hover:scale-110 hover:-translate-y-1 duration-200 transition-all  inset-x-0 fixed bottom-24 z-20 max-w-xs sm:max-w-sm  mx-auto ${className}`}
+      onClick={() => onFABClicked && onFABClicked()}
+      //@ts-ignore
+      type={btnType || "button"}
+      className={`btn-primary shadow-2xl hover:scale-110 hover:-translate-y-1 duration-200 transition-all  inset-x-0 fixed bottom-24 z-10 max-w-xs sm:max-w-sm  mx-auto ${className}`}
     >
       {text}
     </button>
