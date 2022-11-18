@@ -14,7 +14,7 @@ export default function middleware(req: NextRequest) {
   const onlyUnauthenticatedRoutes = ["/", "/login", "/register"]
 
 
-  if(isProtectedRoute) {
+  if (isProtectedRoute) {
     if (!isLoggedIn) return NextResponse.redirect(new URL('/login', req.url))
   } else {
     if (isLoggedIn) {
