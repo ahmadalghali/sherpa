@@ -4,7 +4,7 @@ type Props = {
   text: string;
   className?: string;
   onFABClicked?: Function;
-  btnType: string;
+  btnType?: string;
 };
 
 function FloatingActionButton({

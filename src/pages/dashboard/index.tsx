@@ -1,7 +1,6 @@
 import FloatingActionButton from "@/common/components/FloatingActionButton";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import CreateNewGoalFloatingButton from "../../common/components/CreateNewGoalFloatingButton";
 import Goals from "../../features/goals/components/Goals";
 import Groups from "../../features/groups/components/Groups";
 import { RootState } from "../../store";
