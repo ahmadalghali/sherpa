@@ -9,6 +9,7 @@ export default function Home() {
         <h1 className="font-semibold text-gray-800 text-start text-5xl">
           Lorem ipsum dolor sit amet.
         </h1>
+
         <div className="flex justify-center mt-20">
           <Image
             alt="image"
@@ -18,10 +19,12 @@ export default function Home() {
             className=""
           />
         </div>
+
         <p className="text-center mt-10">
           Track and manage your goals like never before, now with an all easy
           solution.
         </p>
+
         <div className="flex justify-center space-x-10 mt-20">
           <Link href="/login" className="btn-primary">
             Get Started
@@ -30,6 +33,15 @@ export default function Home() {
             Learn More
           </Link>
         </div>
+      </div>
+
+      <div className="bg-black flex justify-center mt-20  rounded-lg w-full">
+        <video autoPlay muted loop height={200} width={200}>
+          <source
+            src="/assets/videos/sherpa-flutter-demo.mp4"
+            type="video/mp4"
+          />
+        </video>
       </div>
 
       <div className="flex flex-col space-y-20  mt-20">
