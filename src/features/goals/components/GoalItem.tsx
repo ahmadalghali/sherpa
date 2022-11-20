@@ -31,11 +31,11 @@ function GoalItem({ goal }: Props) {
             icon: <DeleteIcon />,
             action: () => dispatch(deleteGoal(id)),
           },
-          {
-            title: "Edit",
-            icon: <EditIcon />,
-            action: () => router.push(`/dashboard/goals/${id}/edit`),
-          },
+          // {
+          //   title: "Edit",
+          //   icon: <EditIcon />,
+          //   action: () => router.push(`/dashboard/goals/${id}/edit`),
+          // },
         ]}
       />
     </div>
