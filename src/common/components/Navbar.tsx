@@ -7,7 +7,7 @@ type Props = {
 };
 export default function Navbar({ className }: Props) {
   const router = useRouter();
-  const { logout, isLoggedIn } = useAuth();
+  const { logout, isLoggedIn, dummyLogin, dummyLogout } = useAuth();
 
   return (
     <nav
@@ -23,28 +23,43 @@ export default function Navbar({ className }: Props) {
         Sherpa
       </p>
       <div className="flex space-x-5 items-center">
-        {isLoggedIn && (
+        {/* {isLoggedIn && (
           <LogoutIcon
             className="bg-gray-400 cursor-pointer"
             onClick={() => logout()}
           />
+        )} */}
+        {!isLoggedIn && (
+          <ul className="hidden lg:flex text-lg font-semibold space-y-8 sm:space-y-0  sm:justify-evenly sm:items-center sm:h-full space-x-10 mr-10">
+            <li>
+              <Link href="/about-us">About</Link>
+            </li>
+            <li>
+              <Link href="/privacy-policy">Privacy Policy</Link>
+            </li>
+            <li>
+              {" "}
+              <Link href="/contact-us">Contact</Link>
+            </li>
+          </ul>
         )}
-        <ul className="hidden lg:flex text-lg font-semibold space-y-8 sm:space-y-0  sm:justify-evenly sm:items-center sm:h-full space-x-10 mr-10">
-          <li>
-            <Link href="/about-us">About</Link>
-          </li>
-          <li>
-            <Link href="/privacy-policy">Privacy Policy</Link>
-          </li>
-          <li>
-            {" "}
-            <Link href="/contact-us">Contact</Link>
-          </li>
-        </ul>
 
-        <p className="text-sm font-medium shadow-2xl cursor-pointer bg-accent-800 px-4 py-2 rounded-full">
-          Try Demo
-        </p>
+        {!isLoggedIn ? (
+          <p
+            className="text-sm font-medium shadow-2xl cursor-pointer bg-accent-800 px-4 py-2 rounded-full"
+            onClick={() => dummyLogin()}
+          >
+            Try Demo
+          </p>
+        ) : (
+          <p
+            className="text-sm font-medium shadow-2xl cursor-pointer bg-accent-800 px-4 py-2 rounded-full"
+            onClick={() => dummyLogout()}
+          >
+            Exit Demo
+          </p>
+        )}
+
         {/* <p className="text-md font-medium shadow-2xl cursor-pointer bg-[#6b132e] px-5 py-2 rounded-full">
           Try demo
         </p> */}

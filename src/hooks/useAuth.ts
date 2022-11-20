@@ -12,26 +12,20 @@ export default function useAuth() {
   const router = useRouter()
   const dispatch = useDispatch()
 
+  const dummyLogin = () => {
+    console.log('test')
+    const dummyUser = { user: 'user' }
+
+    setCookie('user', { user: dummyUser, expires: new Date(0) })
+    router.push("/dashboard");
+  }
+
   const login = async ({ username, password }: LoginRequest) => {
-    // hardcoding user for now
-    const dummyUser = { user: 'ahmad' }
 
     // const { data: response } = await api.post<AuthResponse>("/authentication/login/", {
     //   username: username,
     //   password: password,
     // });
-
-
-    if (dummyUser) {
-      toast.info("Simulated login whilst server gets fixed")
-      // dispatch(setUser(dummyUser))
-      setCookie('user', { user: dummyUser, expires: new Date(0) })
-      router.push("/dashboard");
-      console.log('JSON.stringify(response)', JSON.stringify(dummyUser))
-    } else {
-
-      alert("Email or password incorrect");
-    }
   }
 
 
@@ -66,8 +60,14 @@ export default function useAuth() {
     router.replace('/login')
   }
 
+  const dummyLogout = () => {
+    deleteCookie("user");
+    dispatch(setUser(null))
+    router.replace('/')
+  }
+
   const isLoggedIn = hasCookie('user')
 
 
-  return { login, logout, register, isLoggedIn }
+  return { login, logout, register, dummyLogin, dummyLogout, isLoggedIn }
 }
