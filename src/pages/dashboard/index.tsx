@@ -1,6 +1,7 @@
 import FloatingActionButton from "@/common/components/FloatingActionButton";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import Goals from "../../features/goals/components/Goals";
 import Groups from "../../features/groups/components/Groups";
 import { RootState } from "../../store";
@@ -20,6 +21,15 @@ function Dashboard({}: Props) {
 
   const myGoals = useSelector((state: RootState) => state.goals.myGoals);
 
+  const toastId = React.useRef("add-new-goal-toast");
+
+  const notify = () => {
+    if (!toast.isActive(toastId.current)) {
+      //@ts-ignore
+      toastId.current = toast.info("Coming soon...", { autoClose: 2000 });
+    }
+  };
+
   return (
     <div className="">
       <div className="space-y-10">
@@ -27,7 +37,10 @@ function Dashboard({}: Props) {
         <Groups groups={myGroups} />
       </div>
 
-      <FloatingActionButton text="Add a new goal" />
+      <FloatingActionButton
+        text="Add a new goal"
+        onFABClicked={() => notify()}
+      />
     </div>
   );
 }
