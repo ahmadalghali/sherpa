@@ -12,7 +12,7 @@ export default function Home() {
         <div className="flex justify-center mt-20">
           <Image
             alt="image"
-            src="/descriptions.svg"
+            src="/assets/descriptions.svg"
             height="200"
             width="200"
             className=""
@@ -37,7 +37,7 @@ export default function Home() {
           <div className="flex justify-center w-1/3">
             <Image
               alt="image"
-              src="/goals.svg"
+              src="/assets/goals.svg"
               height="200"
               width="200"
               className=""
@@ -62,7 +62,7 @@ export default function Home() {
           <div className="flex justify-center w-1/3">
             <Image
               alt="image"
-              src="/todo.svg"
+              src="/assets/todo.svg"
               height="200"
               width="200"
               className=""
@@ -74,7 +74,7 @@ export default function Home() {
           <div className="flex justify-center w-1/3">
             <Image
               alt="image"
-              src="/feedback.svg"
+              src="/assets/feedback.svg"
               height="200"
               width="200"
               className=""
@@ -91,7 +91,7 @@ export default function Home() {
           <div className="flex justify-center w-1/3">
             <Image
               alt="image"
-              src="/progress.svg"
+              src="/assets/progress.svg"
               height="200"
               width="200"
               className=""
@@ -103,7 +103,7 @@ export default function Home() {
       <div className="flex justify-center mt-20">
         <Image
           alt="image"
-          src="/social-groups.svg"
+          src="/assets/social-groups.svg"
           height="300"
           width="300"
           className=""
