@@ -37,10 +37,7 @@ export default function Home() {
 
       <div className="bg-black flex justify-center mt-20  rounded-lg w-full">
         <video autoPlay muted loop height={200} width={200}>
-          <source
-            src="/assets/videos/sherpa-flutter-demo.mp4"
-            type="video/mp4"
-          />
+          <source src="/sherpa-flutter-demo.mp4" type="video/mp4" />
         </video>
       </div>
 
