@@ -21,14 +21,14 @@ function Dashboard({}: Props) {
 
   const myGoals = useSelector((state: RootState) => state.goals.myGoals);
 
-  const toastId = React.useRef("add-new-goal-toast");
+  // const toastId = React.useRef("add-new-goal-toast");
 
-  const notify = () => {
-    if (!toast.isActive(toastId.current)) {
-      //@ts-ignore
-      toastId.current = toast.info("Coming soon...", { autoClose: 2000 });
-    }
-  };
+  // const notify = () => {
+  //   if (!toast.isActive(toastId.current)) {
+  //     //@ts-ignore
+  //     toastId.current = toast.info("Coming soon...", { autoClose: 2000 });
+  //   }
+  // };
 
   return (
     <div className="">
@@ -37,10 +37,10 @@ function Dashboard({}: Props) {
         <Groups groups={myGroups} />
       </div>
 
-      <FloatingActionButton
+      {/* <FloatingActionButton
         text="Add a new goal"
         onFABClicked={() => notify()}
-      />
+      /> */}
     </div>
   );
 }
