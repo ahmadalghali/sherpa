@@ -9,19 +9,22 @@ export default function Home() {
         <h1 className="font-semibold text-gray-800 text-start text-5xl">
           Lorem ipsum dolor sit amet.
         </h1>
+
         <div className="flex justify-center mt-20">
           <Image
             alt="image"
-            src="/descriptions.svg"
+            src="/assets/descriptions.svg"
             height="200"
             width="200"
             className=""
           />
         </div>
+
         <p className="text-center mt-10">
           Track and manage your goals like never before, now with an all easy
           solution.
         </p>
+
         <div className="flex justify-center space-x-10 mt-20">
           <Link href="/login" className="btn-primary">
             Get Started
@@ -32,12 +35,21 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="bg-black flex justify-center mt-20  rounded-lg w-full">
+        <video autoPlay muted loop height={200} width={200}>
+          <source
+            src="/assets/videos/sherpa-flutter-demo.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+
       <div className="flex flex-col space-y-20  mt-20">
         <div className="flex p-2 items-center space-x-10">
           <div className="flex justify-center w-1/3">
             <Image
               alt="image"
-              src="/goals.svg"
+              src="/assets/goals.svg"
               height="200"
               width="200"
               className=""
@@ -62,7 +74,7 @@ export default function Home() {
           <div className="flex justify-center w-1/3">
             <Image
               alt="image"
-              src="/todo.svg"
+              src="/assets/todo.svg"
               height="200"
               width="200"
               className=""
@@ -74,7 +86,7 @@ export default function Home() {
           <div className="flex justify-center w-1/3">
             <Image
               alt="image"
-              src="/feedback.svg"
+              src="/assets/feedback.svg"
               height="200"
               width="200"
               className=""
@@ -91,7 +103,7 @@ export default function Home() {
           <div className="flex justify-center w-1/3">
             <Image
               alt="image"
-              src="/progress.svg"
+              src="/assets/progress.svg"
               height="200"
               width="200"
               className=""
@@ -103,7 +115,7 @@ export default function Home() {
       <div className="flex justify-center mt-20">
         <Image
           alt="image"
-          src="/social-groups.svg"
+          src="/assets/social-groups.svg"
           height="300"
           width="300"
           className=""

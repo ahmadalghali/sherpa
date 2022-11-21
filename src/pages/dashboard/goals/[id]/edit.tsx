@@ -1,18 +1,16 @@
 import FloatingActionButton from "@/common/components/FloatingActionButton";
-import { RootState } from "@/store";
-import { selectGoalById } from "@/store/slices/goalsSlice";
 import { Goal } from "@/types";
-import { PencilIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import Link from "next/link";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { SubmitHandler, useForm } from "react-hook-form";
 import useGoals from "@/features/goals/api";
-type Props = {};
+
+type Props = {
+  goal: Goal;
+};
 
 type DraftInputs = {
   title: string;
@@ -20,16 +18,16 @@ type DraftInputs = {
   dueDate?: Date;
 };
 
-function EditGoalPage({}: Props) {
-  const router = useRouter();
-
+function EditGoalPage({ goal }: Props) {
   const { updateGoal } = useGoals();
 
-  let goalId = router.query.id as string;
+  const router = useRouter();
 
-  let goal = useSelector((state: RootState) =>
-    state.goals.myGoals.find((goal) => goal.id === parseInt(goalId))
-  )!;
+  let goalId = router.query.id as string;
+  console.log("goalId :>> ", goalId);
+
+  // const [goal, setGoal] = useState<Goal | undefined>();
+  const [draftDueDate, setDraftDueDate] = useState<Date | null>(null);
 
   const {
     register,
@@ -38,8 +36,28 @@ function EditGoalPage({}: Props) {
     setError,
     getValues,
   } = useForm<DraftInputs>({
-    defaultValues: { title: goal.title, description: goal.description },
+    defaultValues: { title: goal?.title, description: goal?.description },
   });
+
+  useEffect(() => {
+    // const getGoal = async () => {
+    //   const res = await fetch("../../../../data/goals.JSON");
+    //   const goals: Goal[] = await res.json();
+    //   const foundGoal = goals.find((goal) => goal.id == parseInt(goalId));
+    //   console.log("foundGoal", foundGoal);
+    //   setGoal(foundGoal);
+    //   setDraftDueDate(new Date(foundGoal?.dueDate!));
+    // };
+    // getGoal();
+  }, [goalId]);
+
+  if (!goal) {
+    return (
+      <div className="h-screen grid items-center">
+        <p className="text-center text-xl">Goal with {goalId} not found</p>
+      </div>
+    );
+  }
 
   const onSubmit: SubmitHandler<DraftInputs> = ({
     description,
@@ -58,17 +76,6 @@ function EditGoalPage({}: Props) {
 
   // const [draftTitle, setDraftTitle] = useState(goal.title);
   // const [draftDescription, setDraftDescription] = useState(goal.description);
-  const [draftDueDate, setDraftDueDate] = useState<Date | null>(
-    goal.dueDate ? new Date(goal.dueDate) : null
-  );
-
-  if (!goal) {
-    return (
-      <div className="h-screen grid items-center">
-        <p className="text-center text-xl">Goal with {goalId} not found</p>
-      </div>
-    );
-  }
 
   const existEditMode = () => {
     router.push(`/dashboard/goals/${goal.id}`);
@@ -91,7 +98,7 @@ function EditGoalPage({}: Props) {
           <XMarkIcon className="h-14" onClick={() => existEditMode()} />
           {/* </Link> */}
         </div>
-        {errors.title && (
+        {errors?.title && (
           <p className="text-red-600 ml-2 mt-1">{errors.title.message}</p>
         )}
         <div className="mt-20">
@@ -102,7 +109,7 @@ function EditGoalPage({}: Props) {
             {...register("description")}
             className="mt-2 bg-white p-4 rounded-xl w-full h-40 border-none "
           ></textarea>
-          {errors.description && (
+          {errors?.description && (
             <p className="text-red-600 ml-2 mt-1">
               {errors.description.message}
             </p>
@@ -131,5 +138,33 @@ function EditGoalPage({}: Props) {
     </div>
   );
 }
+
+// Fetching data from the JSON file
+import fsPromises from "fs/promises";
+import path from "path";
+import { GetStaticPaths, GetStaticProps } from "next";
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const goalId = params?.id;
+  const filePath = path.join(process.cwd(), "./src/data/goals.json");
+  const goalsJson = await fsPromises.readFile(filePath);
+  //@ts-ignore
+  const goals: Goal[] = JSON.parse(goalsJson);
+
+  const foundGoal = goals.find((goal) => goal.id == parseInt(goalId as string));
+
+  return {
+    props: {
+      goal: foundGoal,
+    },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+  return {
+    paths: [], //indicates that no page needs be created at build time
+    fallback: "blocking", //indicates the type of fallback
+  };
+};
 
 export default EditGoalPage;
