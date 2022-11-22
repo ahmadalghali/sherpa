@@ -1,6 +1,7 @@
 # Sherpa
 
-A landing page for Sherpa mobile app
+🏆 Promotional site for Sherpa mobile app built with React and Next.js
+
 https://sherpa-app.vercel.app
 
 
