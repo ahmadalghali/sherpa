@@ -1,6 +1,7 @@
 # Sherpa
 
-https://sherpa-app.netlify.app
+A landing page for Sherpa mobile app
+https://sherpa-app.vercel.app
 
 
 ## Project Screen Shots &nbsp; :camera_flash:
