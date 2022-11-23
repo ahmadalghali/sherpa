@@ -1,6 +1,8 @@
 # Sherpa
 
-https://sherpa-app.netlify.app
+🏆 Promotional site for Sherpa mobile app built with React and Next.js
+
+https://sherpa-app.vercel.app
 
 
 ## Project Screen Shots &nbsp; :camera_flash:
