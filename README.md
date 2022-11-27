@@ -4,28 +4,41 @@
 
 https://sherpa-app.vercel.app
 
-
 ## Project Screen Shots &nbsp; :camera_flash:
 
-<table >
+<table>
   <tr>
-   <td valign="top">
-      <img src="https://user-images.githubusercontent.com/60392502/199997059-3cad3930-6046-4fba-8b95-6cad9cec7753.png" >
+    <td valign="top">
+      <img  src="https://user-images.githubusercontent.com/60392502/204127399-e4e05e8d-2c7f-49ca-bd3c-029504129890.png">
     </td>
     <td valign="top">
-      <img alt="Screenshot 2022-07-29 at 03 26 13" src="https://user-images.githubusercontent.com/60392502/199997050-da477c1b-2bad-4b4a-b060-29b84de2ff5f.png">
+      <img  src="https://user-images.githubusercontent.com/60392502/204127401-d22388cb-6321-4497-a067-9fd206b78101.png">
     </td>
      <td valign="top">
-      <img src="https://user-images.githubusercontent.com/60392502/199997036-98726cf2-8dfa-49f5-95d9-81e0823c9c01.png">
+      <img  src="https://user-images.githubusercontent.com/60392502/204127402-233bcd05-054c-4bc1-b514-5fc2eeb31eeb.png">
     </td>
+     <td valign="top">
+      <img  src="https://user-images.githubusercontent.com/60392502/204127404-88a246a6-1c1c-4ba4-965b-6e60377d14f1.png">
+    </td>
+
   </tr>
   
   <tr>
     <td valign="top">
-    <img src="https://user-images.githubusercontent.com/60392502/199997045-ee8be079-fa7f-45a8-8bde-921e9222f594.png">
+      <img  src="https://user-images.githubusercontent.com/60392502/204127407-52d32ed4-7aa0-4274-b516-575855f49af1.png">
+    </td>
+     <!-- <td valign="top">
+      <img  src="https://user-images.githubusercontent.com/60392502/204127408-a3206657-f1c1-483a-a128-5ed448052bc2.png">
+    </td> -->
+      <td valign="top">
+      <img  src="https://user-images.githubusercontent.com/60392502/204127409-d12e5def-2572-4cd6-b1d6-d61775b22e12.png">
     </td>
     <td valign="top">
-      <img  alt="Screenshot 2022-07-29 at 03 29 06" src="https://user-images.githubusercontent.com/60392502/199997048-bb2a1ba4-20c1-4293-8249-a3bbf4fad6f0.png">
-    </td>    
+      <img  src="https://user-images.githubusercontent.com/60392502/204127411-621aaf89-f7e3-4552-b81b-ce7840f85bdd.png">
+    </td>
+     <td valign="top">
+      <img  src="https://user-images.githubusercontent.com/60392502/204127412-e965ebe6-cebb-426a-b715-c8191dc7b880.png">
+    </td>
   </tr>
+
 </table>

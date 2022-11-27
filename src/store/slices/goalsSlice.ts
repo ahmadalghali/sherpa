@@ -7,9 +7,9 @@ export interface GoalsState {
 }
 const initialState: GoalsState = {
   myGoals: [
-    { id: 1, title: "Do 5 pushups", dueDate: '2021-12-01', description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque optio necessitatibus quia cum ipsum ipsam dignissimos impedit veritatis harum corrupti." },
-    { id: 2, title: "Climb Pen y fan", dueDate: '2022-03-08', description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque optio necessitatibus quia cum ipsum ipsam dignissimos impedit veritatis harum corrupti." },
-    { id: 3, title: "Get shredded", dueDate: '2023-05-11', description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque optio necessitatibus quia cum ipsum ipsam dignissimos impedit veritatis harum corrupti." },
+    { id: 1, title: "Study programming", dueDate: '2021-12-01', description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque optio necessitatibus quia cum ipsum ipsam dignissimos impedit veritatis harum corrupti." },
+    { id: 2, title: "Beat 15 Pushups PR", dueDate: '2022-03-08', description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque optio necessitatibus quia cum ipsum ipsam dignissimos impedit veritatis harum corrupti." },
+    { id: 3, title: "Learn spanish", dueDate: '2023-05-11', description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque optio necessitatibus quia cum ipsum ipsam dignissimos impedit veritatis harum corrupti." },
   ]
 };
 
